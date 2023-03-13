@@ -6,117 +6,111 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:49:35 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/02/09 15:08:02 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:23:37 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-// {
-// 	char	*dst;
+int	quit(t_data *data)
+{
+	int	i;
 
-// 	if (x < 0 || x > LENGTH || y < 0 || y > WIDTH)
+	i = 0;
+	mlx_destroy_image(data->mlx, data->img.img);
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	while (data->tab && data->tab[i])
+	{
+		free(data->tab[i]);
+		i++;
+	}
+	free(data->tab);
+	exit(0);
+	return (0);
+}
+
+int	keys(int keycode, t_data *data)
+{
+	printf("%i\n", keycode);
+	if (keycode == 65451)
+		data->zoom = data->zoom + 0.01;
+	if (keycode == 65453)
+		data->zoom = data->zoom - 0.01;
+	if (keycode == 119)
+		data->translatey = data->translatey - 40;
+	if (keycode == 115)
+		data->translatey = data->translatey + 40;
+	if (keycode == 97)
+		data->translatex = data->translatex - 40;
+	if (keycode == 100)
+		data->translatex = data->translatex + 40;
+	if (keycode == 65307)
+		quit(data);
+	return (0);
+}
+
+// void	check_matrix(t_data data, t_vertex **tab)
+// {
+// 	int	a;
+// 	int	b;
+
+// 	a = 0;
+// 	while (a < data.width)
 // 	{
-// 		return ;
-// 	}
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
-
-// int	quit(void)
-// {
-// 	exit(0);
-// 	return (0);
-// }
-
-// int	keys(int keycode, void *param)
-// {
-// 	if (keycode == 65307)
-// 		quit();
-// 	return (0);
-// }
-
-// void	drawing(t_data img)
-// {
-// 	int					x;
-// 	int					y;
-// 	unsigned int		red;
-// 	unsigned int		green;
-// 	unsigned int		blue;
-// 	unsigned int		color;
-
-// 	x = 0;
-// 	y = 0;
-// 	red = 122;
-// 	green = 255;
-// 	blue = 0;
-// 	color = 0;
-// 	red <<= 16;
-// 	green <<= 8;
-// 	while (x < 200)
-// 	{
-// 		while (y + x < 200)
+// 		b = 0;
+// 		while (b < data.height)
 // 		{
-// 			my_mlx_pixel_put(&img, x, y, green);
-// 			my_mlx_pixel_put(&img, x + 300, 500 + y, red);
-// 			y++;
+// 			printf("%d  ", tab[a][b].z);
+// 			b++;
 // 		}
-// 		y = 0;
-// 		x++;
+// 		printf("\n");
+// 		a++;
 // 	}
 // 	return ;
 // }
 
-void    check_matrix(t_vertex **tab, int x, int y)
-{
-    int	a;
-    int	b;
-
-    a = 0;
-	while (a < y)
-	{
-        b = 0;
-		while (b < x)
-        {
-            printf("%d  ", tab[a][b].z);
-            // printf("%d  ", tab[a][b].color);
-            b++;
-        }
-        printf("\n");
-        a++;
-    }
-}
-
 int	main(int argc, char **argv)
 {
-	// t_data		img;
-	// void		*mlx;
-	// void		*mlx_win;
-	t_vertex	**tab;
-	int			i;
+	t_data		data;
 
 	(void) argc;
 	(void) argv;
 	if (argc != 2)
-		return (write(1, "not the right amount of parameters\n", 30), 0);
-	parsing (argv[1], &tab);
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
+		return (write(1, "invalid amount of parameters\n", 29), 0);
+	data.translatex = 0;
+	data.translatey = 0;
+	data.zoom = 1;
+	data.draw.lowest = 0;
+	data.draw.tallest = 0;
+	parsing (argv[1], &data, &data.tab);
+	data.mlx = mlx_init();
+	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "fdf");
+	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
+	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
+			&data.img.line_length, &data.img.endian);
+	mlx_loop_hook(data.mlx, &drawing, &data);
+	mlx_hook(data.mlx_win, 17, 0, &quit, &data);
+	mlx_hook(data.mlx_win, 2, 1L << 0, &keys, &data);
+	mlx_loop(data.mlx);
 	return (0);
-	// mlx = mlx_init();
-	// mlx_win = mlx_new_window(mlx, LENGTH, WIDTH, "fdf");
-	// img.img = mlx_new_image(mlx, LENGTH, WIDTH);
-	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
-	// 		&img.line_length, &img.endian);
-	// drawing (img);
-	// mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	// mlx_hook(mlx_win, 17, 0, &quit, NULL);
-	// mlx_hook(mlx_win, 2, 1L<<0, &keys, NULL);
-	// mlx_loop(mlx);
 }
+
+// int main()
+// {
+// 	void	*mlx;
+// 	void	*mlx_win;
+// 	void	*img;
+
+// 	mlx = mlx_init();
+// 	mlx_win = mlx_new_window(mlx, 1000, 1000, "test colors");
+// 	img = mlx_new_image(mlx, 1000, 1000);
+// 	mlx_put_image_to_window(mlx, mlx_win, img, 0, 0);
+// 	for (int i=200; i<600; i++)
+// 	{
+// 		for (int j=200; j<600; j++)
+// 			mlx_pixel_put(mlx, mlx_win, i, j, 0xFFFFFF);
+// 	}
+// 	mlx_loop(mlx);
+// }
