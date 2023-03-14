@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/09 19:24:00 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:04:42 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ typedef struct s_data {
 	int			translatex;
 	int			translatey;
 	float		zoom;
+	int			offset_x;
+	int			offset_y;
+	int			last_y;
 	t_vertex	**tab;
 	t_drawing	draw;
 	t_img		img;
@@ -81,5 +84,8 @@ int			calculate_x(int offset, t_vertex tab, t_data data);
 int			calculate_y(int offset, t_vertex tab, t_data data);
 int			lowest(int z, t_data data);
 int			tallest(int z, t_data data);
-int			color_point(int	height, t_data *data);
+int			get_perfect_gradient(t_data *data, int alt);
+int			color_point(int height, t_data *data);
+int			drawing_bis(t_data *data, int x, int y);
+void		putline(t_drawing draw, t_img img, int color);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/09 20:02:48 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:08:36 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,12 @@ int	drawing(t_data *data)
 {
 	int			x;
 	int			y;
-	int			offset_x;
-	int			offset_y;
 
 	x = 0;
 	y = 0;
-	offset_x = WIDTH / data->width;
-	offset_y = offset_x / 2;
+	data->offset_x = WIDTH / data->width;
+	data->offset_y = data->offset_x / 2;
+	printf("lowest = %i, tallest = %i\n", data->draw.lowest, data->draw.tallest);
 	while (x < WIDTH)
 	{
 		while (y < HEIGHT)
@@ -90,35 +89,14 @@ int	drawing(t_data *data)
 	}
 	x = 0;
 	y = 0;
-	while (x < data->width - 1)
-	{
-		while (y < data->height - 1)
-		{
-			data->draw.x0 = calculate_x(offset_x, data->tab[x][y], *data);
-			data->draw.x1 = calculate_x(offset_x, data->tab[x + 1][y], *data);
-			data->draw.y0 = calculate_y(offset_y, data->tab[x][y], *data);
-			data->draw.y1 = calculate_y(offset_y, data->tab[x + 1][y], *data);
-			putline(data->draw, data->img, color_point(data->tab[x][y].z, data));
-			data->draw.x1 = calculate_x(offset_x, data->tab[x][y + 1], *data);
-			data->draw.y1 = calculate_y(offset_y, data->tab[x][y + 1], *data);
-			putline(data->draw, data->img, color_point(data->tab[x][y].z, data));
-			y++;
-		}
-		data->draw.x0 = calculate_x(offset_x, data->tab[x][y], *data);
-		data->draw.y0 = calculate_y(offset_y, data->tab[x][y], *data);
-		data->draw.x1 = calculate_x(offset_x, data->tab[x + 1][y], *data);
-		data->draw.y1 = calculate_y(offset_y, data->tab[x + 1][y], *data);
-		putline(data->draw, data->img, color_point(data->tab[x][y].z, data));
-		y = 0;
-		x++;
-	}
+	x = drawing_bis(data, x, y);
 	while (y < data->height - 1)
 	{
-		data->draw.x0 = calculate_x(offset_x, data->tab[x][y], *data);
-		data->draw.y0 = calculate_y(offset_y, data->tab[x][y], *data);
-		data->draw.x1 = calculate_x(offset_x, data->tab[x][y + 1], *data);
-		data->draw.y1 = calculate_y(offset_y, data->tab[x][y + 1], *data);
-		putline(data->draw, data->img, color_point(data->tab[x][y].z, data));
+		data->draw.x0 = calculate_x(data->offset_x, data->tab[x][y], *data);
+		data->draw.y0 = calculate_y(data->offset_y, data->tab[x][y], *data);
+		data->draw.x1 = calculate_x(data->offset_x, data->tab[x][y + 1], *data);
+		data->draw.y1 = calculate_y(data->offset_y, data->tab[x][y + 1], *data);
+		putline(data->draw, data->img, get_perfect_gradient(data, data->tab[x][y].z));
 		y++;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);

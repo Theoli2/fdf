@@ -21,6 +21,7 @@ SRC     =   main.c \
 			drawing.c \
 			coordonates.c \
 			colors.c \
+			drawing_bis.c \
 			#calculate_pt.c \
 			display.c \
 			ft_free.c \
