@@ -1,5 +1,5 @@
 CC			= gcc
-CFLAGS		= -Wextra -Wall -Werror -g3 #-fsanitize=address
+CFLAGS		= -Wextra -Wall -Werror -g3 -fsanitize=address
 MLX_LINUX_FLAGS	= -lm -lX11 -lXext
 NAME		= fdf
 BONUS_NAME	= bonus
@@ -20,8 +20,11 @@ SRC     =   main.c \
 			parsing_colors.c \
 			drawing.c \
 			coordonates.c \
-			colors.c \
+			gradient_utils.c \
 			drawing_bis.c \
+			reset.c \
+			point_gradient.c \
+			line_gradient.c \
 			#calculate_pt.c \
 			display.c \
 			ft_free.c \

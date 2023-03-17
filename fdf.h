@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/14 20:04:42 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:37:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ typedef struct s_drawing {
 	int	x1;
 	int	y1;
 	int	z1;
+	int dist;
+	int	is_x;
+	int pos_start;
 	int	lowest;
 	int	tallest;
 }				t_drawing;
@@ -58,6 +61,7 @@ typedef struct s_vertex {
 	int		y;
 	int		z;
 	int		color;
+	int		file_color;
 }				t_vertex;
 
 typedef struct s_data {
@@ -82,10 +86,15 @@ int			ft_atoi_base(char *str, char *base);
 int			drawing(t_data *data);
 int			calculate_x(int offset, t_vertex tab, t_data data);
 int			calculate_y(int offset, t_vertex tab, t_data data);
-int			lowest(int z, t_data data);
-int			tallest(int z, t_data data);
+// int			lowest(int z, t_data data);
+// int			tallest(int z, t_data data);
+void		lowest_tallest(t_data *data);
 int			get_perfect_gradient(t_data *data, int alt);
-int			color_point(int height, t_data *data);
 int			drawing_bis(t_data *data, int x, int y);
-void		putline(t_drawing draw, t_img img, int color);
+int			absolute(int i);
+int			line_gradient(t_drawing draw, t_vertex start, t_vertex end);
+void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void		putline(t_drawing draw, t_img img, t_vertex start, t_vertex end);
+void		reset(t_data *data);
+
 #endif
