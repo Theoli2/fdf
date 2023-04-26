@@ -12,7 +12,7 @@ MLX			= $(MLX_PATH)libmlx.a
 
 SRC_PATH 	= srcs/
 OBJ_PATH 	= obj/
-BONUS_SRC_PATH = fdf_bonus/srcs/
+#BONUS_SRC_PATH = fdf_bonus/srcs/
 #BONUS_OBJ_PATH = fdf_bonus/obj/
 
 SRC     =   main.c \
@@ -24,12 +24,7 @@ SRC     =   main.c \
 			drawing_bis.c \
 			reset.c \
 			point_gradient.c \
-			line_gradient.c \
-			#calculate_pt.c \
-			display.c \
-			ft_free.c \
-			bresenham.c \
-			ft_init.c \
+			line_gradient.c
 
 #BONUS_SRC	= animate.c \
 			calculate_pt.c \

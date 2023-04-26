@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:11:48 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/17 21:37:39 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/03/20 23:38:33 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,3 @@ void	lowest_tallest(t_data *data)
 		x++;
 	}
 }
-
-// int	tallest(int z, t_data data)
-// {
-// 	if (z > data.draw.tallest)
-// 		return (z);
-// 	else
-// 		return (data.draw.tallest);
-// }

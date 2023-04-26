@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/17 23:11:14 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/26 22:03:09 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,26 +124,26 @@ void	parsing(char *file, t_data *data, t_vertex ***tab)
 	return ;
 }
 
-/*
-(calculer point_gradient pendant le parsing et stocker color dans tab machin.color)
-dans put line :
-2 vertex;
-calcule les distances x et y entre les 2;
-trouver la plus grande; 
-calculer la distance entre le x ou le y du current pixel et du point de depart;
-pour chaque valeur r g et b des color des vertex faire :
-color1 - color2;
-faire produit en croix pour chaque valeur rgb pour mapper la distance entre
-le current pixel et le point de depart sur la distance entre les 2 vertex;
-envoyer la couleur recombinee a my_pixel_put;
+// (calculer point_gradient pendant 
+//le parsing et stocker color dans tab machin.color)
+// dans put line :
+// 2 vertex;
+// calcule les distances x et y entre les 2;
+// trouver la plus grande; 
+// calculer la distance entre le x ou le 
+//y du current pixel et du point de depart;
+// pour chaque valeur r g et b des color des vertex faire :
+// color1 - color2;
+// faire produit en croix pour chaque valeur rgb pour mapper la distance entre
+// le current pixel et le point de depart sur la distance entre les 2 vertex;
+// envoyer la couleur recombinee a my_pixel_put;
 
-00000000 00010011 11001010 00011010
+// 00000000 00010011 11001010 00011010
 
-00000000 00000000 00000000 11111111 B
+// 00000000 00000000 00000000 11111111 B
 
-00000000 00000000 11111111 00000000 V
+// 00000000 00000000 11111111 00000000 V
 
-00000000 11111111 00000000 00000000 R
+// 00000000 11111111 00000000 00000000 R
 
-00000000 00000000 00000000 00011010
-*/
+// 00000000 00000000 00000000 00011010

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/17 21:37:45 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/26 22:01:12 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
+typedef struct s_color
+{
+	int	d_r;
+	int	d_g;
+	int	d_b;
+	int	r;
+	int	g;
+	int	b;
+}				t_color;
+
 typedef struct s_drawing {
 	int	error;
 	int	sx;
@@ -36,9 +46,9 @@ typedef struct s_drawing {
 	int	x1;
 	int	y1;
 	int	z1;
-	int dist;
+	int	dist;
 	int	is_x;
-	int pos_start;
+	int	pos_start;
 	int	lowest;
 	int	tallest;
 }				t_drawing;
@@ -74,26 +84,27 @@ typedef struct s_data {
 	float		zoom;
 	int			offset_x;
 	int			offset_y;
+	int			rotate_x;
 	int			last_y;
 	t_vertex	**tab;
 	t_drawing	draw;
 	t_img		img;
 }					t_data;
 
-void		parsing(char *file, t_data *data, t_vertex ***tab);
-void		check_matrix(t_data data, t_vertex **tab);
-int			ft_atoi_base(char *str, char *base);
-int			drawing(t_data *data);
+int			absolute(int i);
 int			calculate_x(int offset, t_vertex tab, t_data data);
 int			calculate_y(int offset, t_vertex tab, t_data data);
-// int			lowest(int z, t_data data);
-// int			tallest(int z, t_data data);
-void		lowest_tallest(t_data *data);
-int			get_perfect_gradient(t_data *data, int alt);
+int			drawing(t_data *data);
 int			drawing_bis(t_data *data, int x, int y);
-int			absolute(int i);
+int			ft_atoi_base(char *str, char *base);
+int			get_perfect_gradient(t_data *data, int alt);
 int			line_gradient(t_drawing draw, t_vertex start, t_vertex end);
+int			sign(int n);
+void		check_matrix(t_data data, t_vertex **tab);
+void		get_distance(t_drawing *draw);
+void		lowest_tallest(t_data *data);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void		parsing(char *file, t_data *data, t_vertex ***tab);
 void		putline(t_drawing draw, t_img img, t_vertex start, t_vertex end);
 void		reset(t_data *data);
 

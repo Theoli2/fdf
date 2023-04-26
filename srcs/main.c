@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 00:49:35 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/13 14:23:37 by tlivroze         ###   ########.fr       */
+/*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
+/*   Updated: 2023/04/26 22:17:08 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,42 @@ int	quit(t_data *data)
 	return (0);
 }
 
+int	keys_bis(int k, t_data *data)
+{
+	if (k == 65451)
+		data->zoom = data->zoom + 0.01;
+	if (k == 65453)
+		data->zoom = data->zoom - 0.01;
+	if (k == 119)
+		data->translatey = data->translatey - 40;
+	if (k == 115)
+		data->translatey = data->translatey + 40;
+	if (k == 65451 || k == 65453 || k == 119 || k == 115)
+		return (1);
+	else
+		return (0);
+}
+
 int	keys(int keycode, t_data *data)
 {
-	printf("%i\n", keycode);
-	if (keycode == 65451)
-		data->zoom = data->zoom + 0.01;
-	if (keycode == 65453)
-		data->zoom = data->zoom - 0.01;
-	if (keycode == 119)
-		data->translatey = data->translatey - 40;
-	if (keycode == 115)
-		data->translatey = data->translatey + 40;
+	if (keys_bis(keycode, data) == 1)
+		return (0);
 	if (keycode == 97)
 		data->translatex = data->translatex - 40;
 	if (keycode == 100)
 		data->translatex = data->translatex + 40;
+	if (keycode == 113)
+	{
+		data->rotate_x = data->rotate_x - 1;
+		if (data->rotate_x < 0)
+			data->rotate_x = 359;
+	}
+	if (keycode == 101)
+	{
+		data->rotate_x = data->rotate_x + 1;
+		if (data->rotate_x > 359)
+			data->rotate_x = 0;
+	}
 	if (keycode == 65307)
 		quit(data);
 	return (0);
@@ -82,6 +103,7 @@ int	main(int argc, char **argv)
 	data.translatex = 0;
 	data.translatey = 0;
 	data.zoom = 1;
+	data.rotate_x = 0;
 	data.draw.lowest = 0;
 	data.draw.tallest = 0;
 	parsing (argv[1], &data, &data.tab);

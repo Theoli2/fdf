@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/17 23:31:32 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:44:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,49 +21,15 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 		return ;
 	}
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	// printf("color : %d\n", color);
 	*(unsigned int *)dst = color;
 }
 
-int	absolute(int n)
+void	putline_bis(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
-}
-
-	int	sign(int n)
-{
-	return ((n > 0) - (n < 0));
-}
-
-void	get_distance(t_drawing *draw)
-{
-	if (absolute(draw->x1 - draw->x0) > absolute(draw->y1 - draw->y0))
-	{
-		draw->dist = absolute(draw->x1 - draw->x0);
-		draw->is_x = 1;
-		draw->pos_start = draw->x0;
-	}
-	else
-	{
-		draw->dist = -absolute(draw->y1 - draw->y0);
-		draw->is_x = 0;
-		draw->pos_start = draw->y0;
-	}
-}
-
-void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
-{
-	draw.dx = absolute(draw.x1 - draw.x0);
-	draw.sx = sign (draw.x1 - draw.x0);
-	draw.dy = -absolute(draw.y1 - draw.y0);
-	draw.sy = sign (draw.y1 - draw.y0);
-	draw.error = draw.dx + draw.dy;
-	get_distance(&draw);
 	while (1)
 	{
-		my_mlx_pixel_put(&img, draw.x0, draw.y0, line_gradient(draw, start, end));
+		my_mlx_pixel_put(&img, draw.x0, draw.y0, \
+		line_gradient(draw, start, end));
 		if (draw.x0 == draw.x1 && draw.y0 == draw.y1)
 			break ;
 		draw.e2 = 2 * draw.error;
@@ -82,6 +48,17 @@ void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 			draw.y0 = draw.y0 + draw.sy;
 		}
 	}
+}
+
+void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
+{
+	draw.dx = absolute(draw.x1 - draw.x0);
+	draw.sx = sign (draw.x1 - draw.x0);
+	draw.dy = -absolute(draw.y1 - draw.y0);
+	draw.sy = sign (draw.y1 - draw.y0);
+	draw.error = draw.dx + draw.dy;
+	get_distance(&draw);
+	putline_bis(draw, img, start, end);
 }
 
 int	drawing(t_data *data)
@@ -104,6 +81,7 @@ int	drawing(t_data *data)
 		putline(data->draw, data->img, data->tab[x][y], data->tab[x][y + 1]);
 		y++;
 	}
+	printf("rotate_x = %i\n", data->rotate_x);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 	return (0);
 }
