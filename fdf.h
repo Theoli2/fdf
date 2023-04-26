@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/26 22:01:12 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/26 23:03:48 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ typedef struct s_data {
 	int			offset_x;
 	int			offset_y;
 	int			rotate_x;
-	int			last_y;
 	t_vertex	**tab;
 	t_drawing	draw;
 	t_img		img;
