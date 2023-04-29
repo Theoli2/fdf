@@ -24,7 +24,10 @@ SRC     =   main.c \
 			drawing_bis.c \
 			reset.c \
 			point_gradient.c \
-			line_gradient.c
+			line_gradient.c \
+			drawing_reverse.c \
+			drawing_utils.c \
+			drawing_parralel.c
 
 #BONUS_SRC	= animate.c \
 			calculate_pt.c \

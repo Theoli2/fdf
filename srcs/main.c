@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/26 22:17:08 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/29 04:39:03 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,14 @@ int	keys_bis(int k, t_data *data)
 		data->translatey = data->translatey - 40;
 	if (k == 115)
 		data->translatey = data->translatey + 40;
-	if (k == 65451 || k == 65453 || k == 119 || k == 115)
+	if (k == 102)
+	{
+		if (data->parralel == 0)
+			data->parralel = 1;
+		else
+			data->parralel = 0;
+	}
+	if (k == 65451 || k == 65453 || k == 119 || k == 115 || k == 102)
 		return (1);
 	else
 		return (0);
@@ -96,16 +103,15 @@ int	main(int argc, char **argv)
 {
 	t_data		data;
 
-	(void) argc;
-	(void) argv;
 	if (argc != 2)
 		return (write(1, "invalid amount of parameters\n", 29), 0);
 	data.translatex = 0;
 	data.translatey = 0;
 	data.zoom = 1;
-	data.rotate_x = 0;
+	data.rotate_x = 45;
 	data.draw.lowest = 0;
 	data.draw.tallest = 0;
+	data.parralel = 0;
 	parsing (argv[1], &data, &data.tab);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "fdf");

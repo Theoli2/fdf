@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/14 23:44:45 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/29 06:00:03 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,21 @@ void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 
 int	drawing(t_data *data)
 {
-	int			x;
-	int			y;
-
-	data->offset_x = WIDTH / data->width;
-	data->offset_y = data->offset_x / 2;
 	reset(data);
-	x = 0;
-	y = 0;
-	x = drawing_bis(data, x, y);
-	while (y < data->height - 1)
+	initialize(data);
+	if (data->parralel == 0)
 	{
-		data->draw.x0 = calculate_x(data->offset_x, data->tab[x][y], *data);
-		data->draw.y0 = calculate_y(data->offset_y, data->tab[x][y], *data);
-		data->draw.x1 = calculate_x(data->offset_x, data->tab[x][y + 1], *data);
-		data->draw.y1 = calculate_y(data->offset_y, data->tab[x][y + 1], *data);
-		putline(data->draw, data->img, data->tab[x][y], data->tab[x][y + 1]);
-		y++;
+		if (data->rotate_x < 180)
+		{
+			drawing_bis(data);
+		}
+		else
+			drawing_reverse(data);
 	}
-	printf("rotate_x = %i\n", data->rotate_x);
+	else
+	{
+		drawing_parralel(data);
+	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/26 23:03:48 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/29 05:23:56 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,30 +75,38 @@ typedef struct s_vertex {
 }				t_vertex;
 
 typedef struct s_data {
-	int			width;
-	int			height;
+	float		width;
+	float		height;
 	void		*mlx;
 	void		*mlx_win;
 	int			translatex;
 	int			translatey;
 	float		zoom;
-	int			offset_x;
-	int			offset_y;
+	float		offset_x;
+	float		offset_y;
 	int			rotate_x;
+	int			parralel;
+	float		center_map_x;
+	float		center_map_y;
 	t_vertex	**tab;
 	t_drawing	draw;
 	t_img		img;
 }					t_data;
 
 int			absolute(int i);
-int			calculate_x(int offset, t_vertex tab, t_data data);
-int			calculate_y(int offset, t_vertex tab, t_data data);
+int			calculate_x(float offset, t_vertex tab, t_data data);
+int			calculate_y(float offset, t_vertex tab, t_data data);
 int			drawing(t_data *data);
-int			drawing_bis(t_data *data, int x, int y);
+int			drawing_reverse(t_data *data);
 int			ft_atoi_base(char *str, char *base);
 int			get_perfect_gradient(t_data *data, int alt);
 int			line_gradient(t_drawing draw, t_vertex start, t_vertex end);
 int			sign(int n);
+float		center_x(t_data data);
+float		center_y(t_data data);
+void		drawing_bis(t_data *data);
+void		drawing_parralel(t_data *data);
+void		initialize(t_data *data);
 void		check_matrix(t_data data, t_vertex **tab);
 void		get_distance(t_drawing *draw);
 void		lowest_tallest(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/26 22:03:09 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/04/29 06:47:32 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ void	parsing(char *file, t_data *data, t_vertex ***tab)
 	fill_tab(file, data, *tab);
 	lowest_tallest(data);
 	init_color(data);
-	printf("%i\n", data->draw.lowest);
 	return ;
 }
 
