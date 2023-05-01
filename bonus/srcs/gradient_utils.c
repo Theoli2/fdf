@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:11:48 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/20 23:38:33 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:28 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 void	lowest_tallest(t_data *data)
 {

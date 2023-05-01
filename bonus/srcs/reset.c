@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 18:34:42 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/15 18:36:24 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:51 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 void	reset(t_data *data)
 {

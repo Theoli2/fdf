@@ -12,8 +12,8 @@ MLX			= $(MLX_PATH)libmlx.a
 
 SRC_PATH 	= srcs/
 OBJ_PATH 	= obj/
-#BONUS_SRC_PATH = fdf_bonus/srcs/
-#BONUS_OBJ_PATH = fdf_bonus/obj/
+#BONUS_SRC_PATH = bonus/srcs/
+#BONUS_OBJ_PATH = bonus/obj/
 
 SRC     =   main.c \
 			parsing.c \

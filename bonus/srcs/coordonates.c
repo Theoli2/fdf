@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 21:16:33 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/29 06:19:57 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:00 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 float	center_x(t_data data)
 {

@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:14 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/29 00:34:27 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:15 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 int	drawing_reverse_ter(t_data *data, int x, int y)
 {	

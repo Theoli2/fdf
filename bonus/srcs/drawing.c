@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/29 06:00:03 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:25 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {

@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:57:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/18 22:36:13 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:30 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 int	line_gradient(t_drawing draw, t_vertex start, t_vertex end)
 {

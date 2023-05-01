@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 04:41:13 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/29 06:38:25 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:14 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 int	calc_para_x(float offset, t_vertex tab, t_data data)
 {

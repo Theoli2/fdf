@@ -6,11 +6,11 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:44:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/29 04:38:01 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:01:07 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../fdf_bonus.h"
 
 int	drawing_quater(t_data *data, int x, int y)
 {	
