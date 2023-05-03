@@ -2,7 +2,7 @@ NAME = libft.a
 
 GNLPATH = ./GNL/
 PRINTFPATH = ./printf/
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_bzero.c \

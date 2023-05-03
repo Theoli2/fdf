@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:39:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/02/04 17:00:14 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:43:58 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_printf(const char *s, ...)
 	count = 0;
 	if (s[i] == '\0')
 		return (count);
-	va_start(args, *s);
+	va_start(args, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
