@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:23:11 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 02:45:51 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (write(1, "invalid amount of parameters\n", 29), 0);
+	ft_bzero((void *)&data, sizeof(t_data));
 	parsing (argv[1], &data, &data.tab);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "fdf");

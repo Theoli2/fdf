@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/02 01:05:44 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 02:54:57 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,12 @@ float		center_y(t_data data);
 void		drawing_bis(t_data *data);
 void		drawing_parralel(t_data *data);
 void		initialize(t_data *data);
-void		check_matrix(t_data data, t_vertex **tab);
+void		error_management(t_data *data);
 void		get_distance(t_drawing *draw);
 void		lowest_tallest(t_data *data);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void		parsing(char *file, t_data *data, t_vertex ***tab);
 void		putline(t_drawing draw, t_img img, t_vertex start, t_vertex end);
 void		reset(t_data *data);
+bool		parsing(char *file, t_data *data, t_vertex ***tab);
 
 #endif

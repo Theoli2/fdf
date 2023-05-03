@@ -20,7 +20,8 @@ SRC     =   main.c \
 			drawing_bis.c \
 			coordonates.c \
 			parsing.c \
-			parsing_colors.c
+			parsing_colors.c \
+			utils.c
 
 BONUS_SRC	=	main.c \
 				parsing.c \
@@ -34,7 +35,8 @@ BONUS_SRC	=	main.c \
 				line_gradient.c \
 				drawing_reverse.c \
 				drawing_utils.c \
-				drawing_parralel.c
+				drawing_parralel.c \
+				utils.c
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 BONUS_SRCS = $(addprefix $(BONUS_SRC_PATH), $(BONUS_SRC))

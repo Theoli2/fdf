@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/28 02:00:48 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 02:55:31 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	init_tab(t_data data, t_vertex ***tab)
 {
 	int	k;
 
-	(*tab) = malloc(sizeof(t_vertex *) * (data.width + 1));
+	(*tab) = ft_calloc(data.width + 1, sizeof(t_vertex *));
 	if (*tab == NULL)
 		return (false);
 	k = 0;
@@ -79,7 +79,7 @@ bool	fill_tab(char *file, t_data *data, t_vertex **tab)
 	return (true);
 }
 
-void	parsing(char *file, t_data *data, t_vertex ***tab)
+bool	parsing(char *file, t_data *data, t_vertex ***tab)
 {
 	int		fd;
 	char	*s;
@@ -97,7 +97,11 @@ void	parsing(char *file, t_data *data, t_vertex ***tab)
 	}
 	free(s);
 	close(fd);
-	init_tab(*data, tab);
+	if (init_tab(*data, tab) == false)
+	{
+		error_management(data);
+		return (false);
+	}
 	fill_tab(file, data, *tab);
-	return ;
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/28 02:12:02 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/03 02:56:42 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ int			ft_atoi_base(char *str, char *base);
 int			sign(int n);
 float		center_x(t_data data);
 float		center_y(t_data data);
-void		check_matrix(t_data data, t_vertex **tab);
 void		get_distance(t_drawing *draw);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void		parsing(char *file, t_data *data, t_vertex ***tab);
 void		putline(t_drawing draw, t_img img, t_vertex start);
 void		reset(t_data *data);
+void		error_management(t_data	*data);
+bool		parsing(char *file, t_data *data, t_vertex ***tab);
 
 #endif
