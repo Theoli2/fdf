@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/05 02:10:05 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:23:28 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	putline_bis(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 		}
 	}
 }
-
 
 void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 {
