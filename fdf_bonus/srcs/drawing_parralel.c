@@ -6,12 +6,13 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 04:41:13 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:19:10 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 02:00:37 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf_bonus.h"
 
+//ne prends en compte que les y
 int	calc_para_x(float offset, t_vertex tab, t_data data)
 {
 	int	res ;
@@ -21,6 +22,7 @@ int	calc_para_x(float offset, t_vertex tab, t_data data)
 	return (res);
 }
 
+//permet une vue ou les y ne sont modifies que par la variable z
 int	calc_para_y(float offset, t_vertex tab, t_data data)
 {
 	int	res;
@@ -63,6 +65,8 @@ int	drawing_parralel_bis(t_data *data, int x, int y)
 	return (x);
 }
 
+//permet d'afficher une vue parrallele au niveau de hauteur 0
+//les sous fonctions marchent comme drawing
 void	drawing_parralel(t_data *data)
 {
 	int	x;

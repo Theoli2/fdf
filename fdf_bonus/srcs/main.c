@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:49:36 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:57:48 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int	quit(t_data *data)
 	return (0);
 }
 
+//verifie que la touche pressee fait partie de cette fonction
+//puis permet de changer les variables de translation sur y,
+//du zoom et de la vue parrallele
 int	keys_bis(int k, t_data *data)
 {
 	if (k == 65451)
@@ -54,6 +57,8 @@ int	keys_bis(int k, t_data *data)
 		return (0);
 }
 
+//permet de changer les variables de translation sur x, de rotation
+//et appelle la sous fonction
 int	keys(int keycode, t_data *data)
 {
 	if (keys_bis(keycode, data) == 1)

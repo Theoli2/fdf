@@ -44,16 +44,14 @@ OBJ		= $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 BONUS_OBJS = $(addprefix $(BONUS_OBJ_PATH), $(BONUS_OBJ))
-INCS	= -I ./includes/
-BONUS_INCS = -I ./fdf_bonus/includes/
 
  all: $(OBJ_PATH) $(NAME) $(BONUS_OBJ_PATH) $(BONUS_NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BONUS_OBJ_PATH)%.o: $(BONUS_SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(BONUS_INCS)
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJ_PATH):
 	mkdir $(OBJ_PATH)

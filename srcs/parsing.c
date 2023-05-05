@@ -6,12 +6,13 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:55:31 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/04 22:22:14 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//alloue le tableau de vertex en fonction du nombre de colonnes et de lignes
 bool	init_tab(t_data data, t_vertex ***tab)
 {
 	int	k;
@@ -31,6 +32,8 @@ bool	init_tab(t_data data, t_vertex ***tab)
 	return (true);
 }
 
+//s'occupe de remplir chaque ligne du tableau avec les coordonnes des points
+// et eventuellement la couleur si elle est presente dans le fichier
 void	sub_fill_tab(t_data	*data, t_vertex	**tab, t_parse parse, char **points)
 {
 	int	i;
@@ -56,6 +59,7 @@ void	sub_fill_tab(t_data	*data, t_vertex	**tab, t_parse parse, char **points)
 	return (free(points[parse.k]), free(points));
 }
 
+//s'occupe de mettre les donnees du fichier dans le tableau
 bool	fill_tab(char *file, t_data *data, t_vertex **tab)
 {
 	char	*s;
@@ -79,6 +83,8 @@ bool	fill_tab(char *file, t_data *data, t_vertex **tab)
 	return (true);
 }
 
+//fonction qui permet de parser la map et de la mettre dans un tableau de vertex
+//compte le nombre de lignes et de colonnes
 bool	parsing(char *file, t_data *data, t_vertex ***tab)
 {
 	int		fd;

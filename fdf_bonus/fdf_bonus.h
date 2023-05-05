@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:54:57 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:53:45 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
+//structure qui contient les valeurs rgb
+//des pixels
 typedef struct s_color
 {
 	int	d_r;
@@ -33,6 +35,8 @@ typedef struct s_color
 	int	b;
 }				t_color;
 
+//contient les variables avec les valeurs les 
+//plus basses et hautes en hauteur sur la map
 typedef struct s_drawing {
 	int	error;
 	int	sx;
@@ -66,6 +70,7 @@ typedef struct s_img {
 	int		endian;
 }				t_img;
 
+//contient la couleur apres gradient de chaque point
 typedef struct s_vertex {
 	int		x;
 	int		y;
@@ -74,6 +79,8 @@ typedef struct s_vertex {
 	int		file_color;
 }				t_vertex;
 
+//contient les variables pour les translations, le zoom
+//la rotation et la vue parrallele en plus
 typedef struct s_data {
 	float		width;
 	float		height;

@@ -6,12 +6,14 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:11:48 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/02 01:01:28 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:20:35 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf_bonus.h"
 
+//cherche la hauteur la plus basse et la plus haute 
+//dans tout le tableau
 void	lowest_tallest(t_data *data)
 {
 	int	x;

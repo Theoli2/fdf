@@ -6,12 +6,14 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:22:57 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:11:41 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//fonction qui met les pixels sur l'image avec la bonne couleur
+//si les pixels ne sont pas dans l'image ne fait rien
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
@@ -24,6 +26,8 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+//calcule l'endroit du prochain pixel a mettre sur l'image 
+//pour une ligne entre 2 points puis passe au point d'apres
 void	putline_bis(t_drawing draw, t_img img, t_vertex start)
 {
 	while (1)
@@ -49,6 +53,7 @@ void	putline_bis(t_drawing draw, t_img img, t_vertex start)
 	}
 }
 
+//fonction permettant de mettre les lignes sur l'image
 void	putline(t_drawing draw, t_img img, t_vertex start)
 {
 	draw.dx = absolute(draw.x1 - draw.x0);
@@ -60,6 +65,11 @@ void	putline(t_drawing draw, t_img img, t_vertex start)
 	putline_bis(draw, img, start);
 }
 
+//print le tableau de vertex sur l'image generee par la mlx
+//est appellee dans la mlx loop hook
+//appelle les fonctions qui calculent le centre de la map /
+//les coordonnees de chaque point sur l'image/
+//et appelle la fonction qui mets les lignes sur l'image
 int	drawing(t_data *data)
 {
 	int			x;

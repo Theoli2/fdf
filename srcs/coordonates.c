@@ -6,12 +6,14 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 21:16:33 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:22:29 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/04 22:49:34 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//calcule le nombre de pixels a ajouter au calcul des coordonnes des points/
+//pour que la carte soit centree dans l'image
 float	center_x(t_data data)
 {
 	float	res;
@@ -21,6 +23,7 @@ float	center_x(t_data data)
 	return (res);
 }
 
+//pareil mais pour les coordonnees y
 float	center_y(t_data data)
 {
 	float	res;
@@ -30,6 +33,8 @@ float	center_y(t_data data)
 	return (res);
 }
 
+//sert a calculer les coordonnes de chaque point sur 
+//la map et a mettre les points en vue isometrique
 int	calculate_x(float offset, t_vertex tab, t_data data)
 {
 	int	res;
@@ -40,6 +45,7 @@ int	calculate_x(float offset, t_vertex tab, t_data data)
 	return (res);
 }
 
+//pareil mais prends en plus la hauteur en compte
 int	calculate_y(float offset, t_vertex tab, t_data data)
 {
 	int	res;

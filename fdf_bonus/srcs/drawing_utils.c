@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 04:14:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/02 01:01:20 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:57:05 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	get_distance(t_drawing *draw)
 	}
 }
 
+//initialise toutes les variables
 void	initialize(t_data *data)
 {
 	data->offset_x = WIDTH / data->width / 2;

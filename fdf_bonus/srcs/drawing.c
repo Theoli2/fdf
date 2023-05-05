@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 05:30:23 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:20:15 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 02:10:05 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+//appelle line_gradient en plus quand la fonction pose un pixel
+//pour connaitre la couleur de chaque pixel
 void	putline_bis(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 {
 	while (1)
@@ -50,6 +52,7 @@ void	putline_bis(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 	}
 }
 
+
 void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 {
 	draw.dx = absolute(draw.x1 - draw.x0);
@@ -61,6 +64,7 @@ void	putline(t_drawing draw, t_img img, t_vertex start, t_vertex end)
 	putline_bis(draw, img, start, end);
 }
 
+//appelle reset, initialize, drawing_reverse et drawing_parallel en plus
 int	drawing(t_data *data)
 {
 	reset(data);

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:53:21 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:21:34 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ bool	fill_tab(char *file, t_data *data, t_vertex **tab)
 	return (true);
 }
 
+//donne la couleur des points d'apres le calcul de gradient fait dans 
+//get_perfect_gradient
 void	init_color(t_data *data)
 {
 	int	x;
@@ -98,6 +100,7 @@ void	init_color(t_data *data)
 	}
 }
 
+//appelle lowest_tallest et init_color en plus
 bool	parsing(char *file, t_data *data, t_vertex ***tab)
 {
 	int		fd;

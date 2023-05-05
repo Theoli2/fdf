@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:56:42 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:47:23 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
+//struct contenant les variables pour l'affichage
 typedef struct s_drawing {
 	int	error;
 	int	sx;
@@ -41,11 +42,13 @@ typedef struct s_drawing {
 	int	pos_start;
 }				t_drawing;
 
+//struct contenant les variables pour le parsing
 typedef struct s_parse {
 	int	k;
 	int	l;
 }				t_parse;
 
+//struct contenant les variables de l'image
 typedef struct s_img {
 	void	*img;
 	char	*addr;
@@ -54,6 +57,7 @@ typedef struct s_img {
 	int		endian;
 }				t_img;
 
+//struct contenant les variables de chaque points
 typedef struct s_vertex {
 	int		x;
 	int		y;
@@ -61,6 +65,9 @@ typedef struct s_vertex {
 	int		file_color;
 }				t_vertex;
 
+
+//struct contenant toute les variables du projet
+//et les autres structures
 typedef struct s_data {
 	float		width;
 	float		height;

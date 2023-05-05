@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:14 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 01:24:48 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:57:50 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	drawing_reverse_bis(t_data *data, int x, int y)
 	return (x);
 }
 
+//fait la meme chose que drawing_bis mais a l'envers
+//(pour afficher la map lorsqu'une rotation est faite)
 int	drawing_reverse(t_data *data)
 {
 	int			x;

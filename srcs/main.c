@@ -6,12 +6,14 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/03 02:45:51 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:46:24 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//fonction qui ferme la fenetre, et free tout ce qui a
+//ete alloue puis quitte le programme
 int	quit(t_data *data)
 {
 	int	i;
@@ -31,6 +33,8 @@ int	quit(t_data *data)
 	return (0);
 }
 
+//fonction qui fait certaines actions en fonction
+//des touches pressees
 int	keys(int keycode, t_data *data)
 {
 	if (keycode == 65307)
@@ -38,6 +42,7 @@ int	keys(int keycode, t_data *data)
 	return (0);
 }
 
+//main, appelle toutes les sous fonctions / a la boucle pour la mlx
 int	main(int argc, char **argv)
 {
 	t_data		data;
@@ -45,7 +50,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (write(1, "invalid amount of parameters\n", 29), 0);
 	ft_bzero((void *)&data, sizeof(t_data));
-	parsing (argv[1], &data, &data.tab);
+	if (parsing (argv[1], &data, &data.tab) == false)
+		return (1);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "fdf");
 	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);

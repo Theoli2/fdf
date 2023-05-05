@@ -6,12 +6,13 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:57 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/02/15 16:50:36 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/05 01:18:36 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//convertis le i dans la base
 int	conv(char c, char *base)
 {
 	int	i;
@@ -26,6 +27,7 @@ int	conv(char c, char *base)
 	return (0);
 }
 
+//verifie que le charactere est dans la base
 int	isinbase(char c, char *base)
 {
 	int	i;
@@ -40,6 +42,7 @@ int	isinbase(char c, char *base)
 	return (0);
 }
 
+//verifie qu' il n'ya pas plusieurs fois le meme charactere
 int	checksame(char *str)
 {
 	int	i;
@@ -63,6 +66,8 @@ int	checksame(char *str)
 	return (0);
 }
 
+//sert a convertir les hexas du fichier en int 
+//pour que la mlx puisse les utiliser
 int	ft_atoi_base(char *str, char *base)
 {
 	int			n;

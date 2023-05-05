@@ -6,12 +6,13 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:44:49 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/04/26 23:24:00 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/04 23:53:41 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
+//retourne la valeur absolue de n
 int	absolute(int n)
 {
 	if (n < 0)
@@ -19,11 +20,14 @@ int	absolute(int n)
 	return (n);
 }
 
+//retourne -1 si n est negatif ou 1 si n est positif
 int	sign(int n)
 {
 	return ((n > 0) - (n < 0));
 }
 
+//permet d'avoir la distance la plus grande entre celle sur 
+//l'axe x et celle sur l'axe y
 void	get_distance(t_drawing *draw)
 {
 	if (absolute(draw->x1 - draw->x0) > absolute(draw->y1 - draw->y0))
@@ -40,6 +44,9 @@ void	get_distance(t_drawing *draw)
 	}
 }
 
+//suite de drawing bis
+//(sert a print toute la map sauf la derniere ligne qui est print dans drawing/
+//et la derniere colonne qui est dans drawing_bis)
 int	drawing_ter(t_data *data, int x, int y)
 {	
 	while (y < data->height - 1)
@@ -57,6 +64,8 @@ int	drawing_ter(t_data *data, int x, int y)
 	return (y);
 }
 
+//suite de la fonction drawing 
+//(sert a print la derniere colonne de la map)
 int	drawing_bis(t_data *data, int x, int y)
 {
 	while (x < data->width - 1)
