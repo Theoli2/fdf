@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:24:06 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/05 00:47:23 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:15:01 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct s_vertex {
 	int		z;
 	int		file_color;
 }				t_vertex;
-
 
 //struct contenant toute les variables du projet
 //et les autres structures
