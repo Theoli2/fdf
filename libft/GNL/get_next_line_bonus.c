@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:32:31 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/03/06 16:56:06 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/10 01:35:12 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,3 @@ char	*get_next_line(int fd)
 		line = ft_line(line, stash[fd]),
 		stash[fd] = ft_clearstash(stash[fd]), line);
 }
-
