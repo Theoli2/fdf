@@ -82,6 +82,9 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f $(BONUS_NAME)
 
+norm:
+	norminette $(SRC_PATH) $(BONUS_SRC_PATH) $(LIBFT_PATH) *.h
+
 re: fclean all
 
 .PHONY: all clean fclean re
