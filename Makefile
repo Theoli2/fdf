@@ -83,7 +83,7 @@ fclean: clean
 	rm -f $(BONUS_NAME)
 
 norm:
-	norminette $(SRC_PATH) $(BONUS_SRC_PATH) $(LIBFT_PATH) *.h
+	norminette $(SRC_PATH) $(BONUS_SRC_PATH) $(LIBFT_PATH) fdf.h ./fdf_bonus/fdf_bonus.h
 
 re: fclean all
 

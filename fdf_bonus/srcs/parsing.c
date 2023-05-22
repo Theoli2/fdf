@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/05 01:21:34 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/22 08:56:38 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ bool	parsing(char *file, t_data *data, t_vertex ***tab)
 	char	*s;
 
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (false);
 	s = get_next_line(fd);
 	data->width = 0;
 	s = ft_strtrim(s, " \n");
@@ -120,10 +122,7 @@ bool	parsing(char *file, t_data *data, t_vertex ***tab)
 	free(s);
 	close(fd);
 	if (init_tab(*data, tab) == false)
-	{
-		error_management(data);
-		return (false);
-	}
+		return (error_management(data), false);
 	fill_tab(file, data, *tab);
 	lowest_tallest(data);
 	init_color(data);

@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:23:54 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/04 22:22:14 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/22 08:54:48 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ bool	parsing(char *file, t_data *data, t_vertex ***tab)
 	char	*s;
 
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (false);
 	s = get_next_line(fd);
 	data->width = 0;
 	s = ft_strtrim(s, " \n");
