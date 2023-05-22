@@ -6,7 +6,7 @@
 /*   By: tlivroze <tlivroze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:30:36 by tlivroze          #+#    #+#             */
-/*   Updated: 2023/05/05 00:57:48 by tlivroze         ###   ########.fr       */
+/*   Updated: 2023/05/22 08:34:38 by tlivroze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,26 @@ int	keys(int keycode, t_data *data)
 	return (0);
 }
 
+int	mlx_start(t_data *data)
+{
+	data->mlx = mlx_init();
+	if (data->mlx == NULL)
+		return (write(1, "mlx_init failed\n", 16), 0);
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "fdf");
+	if (data->mlx_win == NULL)
+		return (free(data->mlx), write(1, "mlx_new_window failed\n", 22), 0);
+	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->img.img == NULL)
+	{
+		free(data->mlx);
+		free(data->mlx_win);
+		return (write(1, "mlx_new_image failed\n", 21), 0);
+	}
+	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel,
+			&data->img.line_length, &data->img.endian);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data		data;
@@ -100,11 +120,11 @@ int	main(int argc, char **argv)
 	data.parralel = 0;
 	if (parsing (argv[1], &data, &data.tab) == false)
 		return (1);
-	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "fdf");
-	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	data.img.addr = mlx_get_data_addr(data.img.img, &data.img.bits_per_pixel,
-			&data.img.line_length, &data.img.endian);
+	if (mlx_start(&data) == 0)
+	{
+		error_management(&data);
+		return (1);
+	}
 	mlx_loop_hook(data.mlx, &drawing, &data);
 	mlx_hook(data.mlx_win, 17, 0, &quit, &data);
 	mlx_hook(data.mlx_win, 2, 1L << 0, &keys, &data);
